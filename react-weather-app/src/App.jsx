@@ -1,21 +1,28 @@
-import { useState, useEffect, useRef } from 'react'
-import { useParams } from 'react-router-dom'
+import CityList from './component/CityList';
+import CityForecast from './component/CityForecast';
+import { Router, Routes, Route } from 'react-router-dom';
 
-import './App.css'
+
+
+
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  
   return (
-    <>
-      <Router>
-    <Routes>
-      <Route path="/post/:postId" element={<PostPage />} />
-    </Routes>
-  </Router>
-      
-    </>
-  )
+  <>
+  <div>
+ 
+    <h1>Weather App</h1>
+      <div><CityForecast></CityForecast>
+      </div>
+    <Router>
+      <Routes>
+        <Route path="/city/:cityId" element={<CityList />} />
+      </Routes>
+    </Router>
+    </div>   
+      </>
+    ) 
 }
 
 export default App
